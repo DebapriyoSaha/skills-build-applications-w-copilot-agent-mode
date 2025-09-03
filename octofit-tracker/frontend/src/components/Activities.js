@@ -1,7 +1,7 @@
 
 
 import React, { useEffect, useState } from 'react';
-const ACTIVITIES_API = 'https://redesigned-telegram-rx9w4r7q77jfxp7p-8000.app.github.dev/api/activity/';
+const ACTIVITIES_API = 'https://redesigned-telegram-rx9w4r7q77jfxp7p-8000.app.github.dev/api/activities/';
 
 function Activities() {
   const [activities, setActivities] = useState([]);
