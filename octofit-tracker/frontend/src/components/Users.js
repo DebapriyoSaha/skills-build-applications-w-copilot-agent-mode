@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const USERS_API = 'https://redesigned-telegram-rx9w4r7q77jfxp7p-8000.app.github.dev/api/users/';
 
+
 function Users() {
   const [users, setUsers] = useState([]);
 
@@ -13,14 +14,27 @@ function Users() {
 
   return (
     <div className="container mt-4">
-      <h2>Users</h2>
-      <ul className="list-group">
-        {users.map((user, idx) => (
-          <li key={idx} className="list-group-item">
-            {user.name} ({user.email})
-          </li>
-        ))}
-      </ul>
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title text-primary mb-4">Users</h2>
+          <table className="table table-striped table-bordered">
+            <thead className="table-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user, idx) => (
+                <tr key={idx}>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

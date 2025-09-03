@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const WORKOUTS_API = 'https://redesigned-telegram-rx9w4r7q77jfxp7p-8000.app.github.dev/api/workouts/';
 
+
 function Workouts() {
   const [workouts, setWorkouts] = useState([]);
 
@@ -13,14 +14,29 @@ function Workouts() {
 
   return (
     <div className="container mt-4">
-      <h2>Workouts</h2>
-      <ul className="list-group">
-        {workouts.map((workout, idx) => (
-          <li key={idx} className="list-group-item">
-            {workout.name}: {workout.description} ({workout.suggested_for})
-          </li>
-        ))}
-      </ul>
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title text-secondary mb-4">Workouts</h2>
+          <table className="table table-striped table-bordered">
+            <thead className="table-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Suggested For</th>
+              </tr>
+            </thead>
+            <tbody>
+              {workouts.map((workout, idx) => (
+                <tr key={idx}>
+                  <td>{workout.name}</td>
+                  <td>{workout.description}</td>
+                  <td>{workout.suggested_for}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
